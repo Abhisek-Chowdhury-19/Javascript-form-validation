@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Regitation Form</title> 
+  <style>
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    header{
+        background-color: rgb(0, 79, 21);
+        text-align: center;
+        color: white;
+        height: 60px;
+    }
+    .mainfo{
+        
+        padding: 20%;
+
+    }
+    label{
+        text-align: right;
+        margin-right: 5%;
+    }
+  </style>
+<script>
+  function validateForm() {
+    var username=document.Myform.username.value;
+    var Name=document.Myform.Name.value;  
+    var password=document.Myform.password.value; 
+    var address=document.Myform.address.value;  
+    var country=document.Myform.country.value; 
+    var zipcode=document.Myform.zipcode.value;  
+    var email=document.Myform.email.value; 
+    var sex=document.Myform.sex.value;  
+    var Language=document.Myform.Language.value; 
+    var about=document.Myform.about.value;  
+    var regName = /^[a-zA-Z]/;
+    var atposition=email.indexOf("@");  
+var dotposition=email.lastIndexOf(".");  
+    if (username==null || username==""){  
+  alert("Username can't be blank");  
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }
+  else if(!regName.test(Name)){  
+    alert('Please enter your full name (first & last name).');  
+  return false;  
+  }
+  else if(country.value){  
+  alert("Select a country");  
+  return false;  
+  }
+  else if(zipcode.length<6){  
+  alert("Enter a valid zip code");  
+  return false;  
+  }
+else if(atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length){  
+  alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+  return false;  
+  }  
+
+
+  else{
+    alert("Sucessfully submitted");  
+  return false;  
+  }  
+}  
+    
+
+
+  </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+  
+  <body>
+    <header>
+        <h1>Regitation Form</h1>
+    </header>  
+    <div class="mainfo">
+            <form name="Myform" onsubmit="return validateForm()" method="post">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text"
+                    class="form-control" name="username" id="username"  placeholder="Username">
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="Name">Name</label>
+                  <input type="text" class="form-control" name="Name" id="Name" placeholder="Full Name">
+                  
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <textarea class="form-control" name="address" id="adress" rows="3"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <select class="form-control" name="country" id="country">
+                    <option value="" disabled="disabled">Choose an option</option>
+                    <option value="one">India</option>
+                    <option value="two">Bangaladesh</option>
+                    <option value="three">Sri Lanka</option>
+                  </select>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="zipcode">Zip Code</label>
+                  <input type="text" class="form-control" name="zipcode" id="zipcode"  placeholder="1001010">
+                  
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="abc@mail.com">
+                  
+                </div>
+                <br>Sex:-
+                <div class="form-check">
+                    <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sex" id="sex" value="Male" required>
+                    Male    
+                  </label>
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sex" id="sex" value="Female" required>
+                    Female
+                  </label>
+                </div>
+                <br>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="Language" id="Language" value="English" required>
+                    English
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="Language" id="Language" value="Non-English" >
+                    Non-English
+                  </label>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="about">About</label>
+                  <textarea class="form-control" name="about" id="about" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+           
+    </div>
+  </body>
+</html>
